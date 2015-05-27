@@ -19,16 +19,20 @@ $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define("DB_NAME", "heroku_3f1870cc57ed347");
+define("DB_NAME", trim($url["path"], "/"));
+// define("DB_NAME", "heroku_4eed1f5663e035f");
 
 /** MySQL database username */
-define("DB_USER", "bef13c34d56d3b");
+define("DB_USER", trim($url["user"]));
+// define("DB_USER", "b7cfc877a785ae");
 
 /** MySQL database password */
-define("DB_PASSWORD", "42490f0a");
+define("DB_PASSWORD", trim($url["pass"]));
+// define("DB_PASSWORD", "db3717c2");
 
 /** MySQL hostname */
-define("DB_HOST", "us-iron-auto-sfo-02-bh.cleardb.net");
+define("DB_HOST", trim($url["host"]));
+// define("DB_HOST", "us-cdbr-east-03.cleardb.com");
 
 /** MySQL database port  */
 // define("DB_PORT", trim($url["port"]));
